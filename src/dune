@@ -8,7 +8,7 @@
    (run %{bin:menhir} %{deps}))))
 
 (library
- (public_name clarity)
+ (public_name clarity-lang)
  (name clarity)
  (modules clarity)
  (wrapped false)

@@ -1,11 +1,11 @@
 (lang dune 2.7)
-(name clarity)
+(name clarity-lang)
 (version 0.1.0)
 
 (generate_opam_files true)
 
 (package
- (name clarity)
+ (name clarity-lang)
  (synopsis "Clarity smart contract parser and AST")
  (description "Clarity.ml parses Clarity smart contracts into an abstract syntax tree.")
  (depends
