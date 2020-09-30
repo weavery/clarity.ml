@@ -6,8 +6,8 @@
 
 (package
  (name clarity)
- (synopsis "Clarity smart contract parser and AST for OCaml")
- (description "Clarity smart contract parser and AST for OCaml.")
+ (synopsis "Clarity smart contract parser and AST")
+ (description "Clarity.ml parses Clarity smart contracts into an abstract syntax tree.")
  (depends
   (alcotest :with-test)
   (menhir (>= 20200624))
