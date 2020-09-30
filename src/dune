@@ -8,8 +8,9 @@
    (run %{bin:menhir} %{deps}))))
 
 (library
- (name Clarity)
- (modules Clarity)
+ (public_name clarity)
+ (name clarity)
+ (modules clarity)
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps
