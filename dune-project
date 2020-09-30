@@ -6,7 +6,7 @@
 
 (package
  (name clarity)
- (synopsis "Clarity smart contract parser and AST for OCaml.")
+ (synopsis "Clarity smart contract parser and AST for OCaml")
  (description "Clarity smart contract parser and AST for OCaml.")
  (depends
   (alcotest :with-test)
