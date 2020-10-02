@@ -10,6 +10,7 @@
  (description "Clarity.ml parses Clarity smart contracts into an abstract syntax tree.")
  (depends
   (alcotest :with-test)
+  (cppo :build)
   (menhir (>= 20200624))
   (num (>= 1.3))))
 
