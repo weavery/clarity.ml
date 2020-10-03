@@ -57,7 +57,7 @@ and parse_function_body sexp =
 and parse_expression sexp =
   let open Sexp in
   match sexp with
-  | Sym id -> Identifier id
+  | Sym id -> if is_primitive id then Keyword id else Identifier id
   | Lit lit -> Literal lit
   | List [Sym "some"; expr] -> SomeExpression (parse_expression expr)
   | List (Sym "list" :: exprs) -> ListExpression (List.map parse_expression exprs)
