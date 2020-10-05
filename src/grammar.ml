@@ -12,15 +12,15 @@ and definition =
 
 and function' = identifier * parameter list * expression list
 
-and parameter = string * type'
+and parameter = identifier * type'
 
 and expression =
-  | Keyword of string
-  | Identifier of string
+  | Keyword of identifier
+  | Identifier of identifier
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
-  (* TODO: TupleExpression *)
+  | TupleExpression of tuple_binding list
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -56,6 +56,8 @@ and expression =
   | UnwrapErrPanic of expression
   | If of expression * expression * expression
 
+and tuple_binding = identifier * expression
+
 and literal =
   | NoneLiteral
   | BoolLiteral of bool
@@ -63,7 +65,7 @@ and literal =
   | UintLiteral of Integer.t
   | BuffLiteral of string
   | StringLiteral of string
-  | TupleLiteral of string * literal
+  | TupleLiteral of identifier * literal
 
 and identifier = string
 
