@@ -96,6 +96,8 @@ and parse_expression sexp =
   | List (Sym "let" :: (List bindings) :: body) -> Let (List.map parse_binding bindings, List.map parse_expression body)
   | List [Sym "to-int"; expr] -> ToInt (parse_expression expr)
   | List [Sym "to-uint"; expr] -> ToUint (parse_expression expr)
+  | List [Sym "match"; input; Sym ok_name; ok_expr; Sym err_name; err_expr] ->
+    Match (parse_expression input, (ok_name, parse_expression ok_expr), (err_name, parse_expression err_expr))
   | List (Sym name :: args) -> FunctionCall (name, (List.map parse_expression args))
   | List _ -> failwith "invalid Clarity expression"
 

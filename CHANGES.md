@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Support for `let` expressions.
 
+- Support for `match` expressions.
+
 - Support for tuple expressions of the form `(tuple (name "blockstack") (id 1337))`.
 
 ## 0.1.0 - 2020-09-30
