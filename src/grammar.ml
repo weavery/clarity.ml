@@ -20,7 +20,7 @@ and expression =
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
-  | TupleExpression of tuple_binding list
+  | TupleExpression of binding list
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -55,8 +55,9 @@ and expression =
   | UnwrapErr of expression * expression
   | UnwrapErrPanic of expression
   | If of expression * expression * expression
+  | Let of binding list * expression list
 
-and tuple_binding = identifier * expression
+and binding = identifier * expression
 
 and literal =
   | NoneLiteral

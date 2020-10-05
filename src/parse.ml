@@ -59,7 +59,7 @@ and parse_expression sexp =
   match sexp with
   | Sym id -> if is_primitive id then Keyword id else Identifier id
   | Lit lit -> Literal lit
-  | List (Sym "tuple" :: bindings) -> TupleExpression (List.map parse_tuple_binding bindings)
+  | List (Sym "tuple" :: bindings) -> TupleExpression (List.map parse_binding bindings)
   | List [Sym "some"; expr] -> SomeExpression (parse_expression expr)
   | List (Sym "list" :: exprs) -> ListExpression (List.map parse_expression exprs)
   | List [Sym "is-none"; expr] -> IsNone (parse_expression expr)
@@ -93,14 +93,15 @@ and parse_expression sexp =
   | List [Sym "unwrap-err!"; input; thrown] -> UnwrapErr ((parse_expression input), (parse_expression thrown))
   | List [Sym "unwrap-err-panic"; input] -> UnwrapErrPanic (parse_expression input)
   | List [Sym "if"; cond; then'; else'] -> If ((parse_expression cond), (parse_expression then'), (parse_expression else'))
+  | List (Sym "let" :: (List bindings) :: body) -> Let (List.map parse_binding bindings, List.map parse_expression body)
   | List [Sym "to-int"; expr] -> ToInt (parse_expression expr)
   | List [Sym "to-uint"; expr] -> ToUint (parse_expression expr)
   | List (Sym name :: args) -> FunctionCall (name, (List.map parse_expression args))
   | List _ -> failwith "invalid Clarity expression"
 
-and parse_tuple_binding = function
+and parse_binding = function
   | List [Sym k; v] -> (k, parse_expression v)
-  | _ -> failwith "invalid Clarity tuple expression"
+  | _ -> failwith "invalid Clarity binding expression"
 
 and parse_type = function
   | Sym "principal" -> Principal

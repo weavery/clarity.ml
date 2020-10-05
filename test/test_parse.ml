@@ -49,6 +49,8 @@ let parses () =
       List [Sym "id"; Lit (int_literal 1337)]]]
 
 let expressions () =
+  check_expression "(let ((x 42)) x)"
+    (Let ([("x", Literal (int_literal 42))], [Identifier "x"]));
   check_expression "(tuple (name \"blockstack\") (id 1337))"
     (TupleExpression [
       ("name", Literal (StringLiteral "blockstack"));
