@@ -3,14 +3,14 @@
 (* See: https://github.com/weavery/clarity.js#supported-clarity-features *)
 
 let is_primitive = function
-  | "*" -> true
-  | "+" -> true
-  | "-" -> true
-  | "/" -> true
-  | "<" -> true
-  | "<=" -> true
-  | ">" -> true
-  | ">=" -> true
+  | "*" | "mul" -> true
+  | "+" | "add" -> true
+  | "-" | "sub" -> true
+  | "/" | "div" -> true
+  | "<" | "lt" -> true
+  | "<=" | "le" -> true
+  | ">" | "gt" -> true
+  | ">=" | "ge" -> true
   | "append" -> true
   | "as-contract" -> true
   | "as-max-len?" -> true
