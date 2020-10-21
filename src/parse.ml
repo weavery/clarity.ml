@@ -2,8 +2,17 @@
 
 let rec parse_program input =
   let lexbuf = Lexing.from_string input in
-  let program = parse read_token lexbuf in
-  List.map parse_definition program
+  try
+    let program = parse read_token lexbuf in
+    List.map parse_definition program
+  with
+  | MenhirBasics.Error -> begin
+      let pos = lexbuf.lex_curr_p in
+      let lnum = pos.pos_lnum in
+      let cnum = pos.pos_cnum - pos.pos_bol + 1 in
+      let msg = Printf.sprintf "Syntax error on line %d, column %d" lnum cnum in
+      raise (SyntaxError (msg))
+    end
 
 and parse_definition sexp =
   let open Sexp in
