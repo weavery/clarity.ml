@@ -1,8 +1,6 @@
 (* This is free and unencumbered software released into the public domain. *)
 
 {
-exception SyntaxError of string
-
 let drop_prefix n input =
   String.sub input n ((String.length input) - n)
 

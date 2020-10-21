@@ -16,6 +16,8 @@
  (preprocessor_deps
   compare.ml
   compare.mli
+  error.ml
+  error.mli
   grammar.ml
   integer.ml
   integer.mli

@@ -11,6 +11,7 @@ let uint_literal n = UintLiteral (Integer.of_int n)
 #include "sexp.ml"
 #include "library.ml"
 
+#include "error.ml"
 #include "parser.ml"
 #include "lexer.ml"
 

@@ -10,6 +10,7 @@ val uint_literal : int -> literal
 #include "sexp.mli"
 #include "library.mli"
 
+#include "error.mli"
 #include "parser.mli"
 #include "lexer.mli"
 
