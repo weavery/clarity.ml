@@ -34,6 +34,7 @@ and parse_definition sexp =
     failwith "define-non-fungible-token not implemented yet"  (* TODO *)
   | List (Sym "define-trait" :: Sym _name :: _) ->
     failwith "define-trait not implemented yet"  (* TODO *)
+  | List (Sym name :: _) -> failwith (Printf.sprintf "invalid Clarity definition: %s" name)
   | _ -> failwith "invalid Clarity definition"
 
 and parse_function_head sexp =

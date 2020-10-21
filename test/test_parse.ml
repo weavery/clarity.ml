@@ -57,7 +57,9 @@ let expressions () =
   check_expression "(tuple (name \"blockstack\") (id 1337))"
     (TupleExpression [
       ("name", Literal (StringLiteral "blockstack"));
-      ("id", Literal (int_literal 1337))])
+      ("id", Literal (int_literal 1337))]);
+  check_expression "{key: key}" (TupleExpression [("key", Identifier "key")]);
+  check_expression "{key: tx-sender}" (TupleExpression [("key", Keyword "tx-sender")])
 
 let () =
   Alcotest.run "Clarity" [

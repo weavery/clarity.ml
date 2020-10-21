@@ -32,6 +32,7 @@ parse:
 
 expression:
   | LPAREN list(expression) RPAREN { List $2 }
+  | LBRACE ID COLON expression RBRACE { List [Sym "tuple"; List [Sym $2; $4]] }
   | ID { Sym $1 }
   | literal { Lit $1 }
   ;
