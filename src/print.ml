@@ -83,10 +83,9 @@ and print_expression ppf = function
     print_operation ppf "match" [input; Identifier ok_name; ok_expr; Identifier err_name; err_expr]
 
 and print_tuple_expression ppf =
+  let print_tuple_binding ppf (k, v) = fprintf ppf "%s: %a" k print_expression v in
   fprintf ppf "{@[<h> %a @]}"
     (Format.pp_print_list ~pp_sep:Format.pp_print_space print_tuple_binding)
-
-and print_tuple_binding ppf (k, v) = fprintf ppf "%s: %a" k print_expression v
 
 and print_let_expression ppf bindings body =
   fprintf ppf "let (@[<h>%a@]) %a)"
@@ -106,7 +105,12 @@ and print_literal ppf = function
   | UintLiteral n -> fprintf ppf "%s" (Integer.to_string n)
   | BuffLiteral s -> fprintf ppf "0x%s" s  (* TODO *)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
-  | TupleLiteral (k, v) -> fprintf ppf "{ %s: %a }" k print_literal v
+  | TupleLiteral bindings -> print_tuple_literal ppf bindings
+
+and print_tuple_literal ppf =
+  let print_tuple_binding ppf (k, v) = fprintf ppf "%s: %a" k print_literal v in
+  fprintf ppf "{@[<h> %a @]}"
+    (Format.pp_print_list ~pp_sep:Format.pp_print_space print_tuple_binding)
 
 and type_to_string = function
   | Principal -> "principal"

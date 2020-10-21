@@ -67,7 +67,7 @@ and literal =
   | UintLiteral of Integer.t
   | BuffLiteral of string
   | StringLiteral of string
-  | TupleLiteral of identifier * literal
+  | TupleLiteral of (identifier * literal) list
 
 and identifier = string
 

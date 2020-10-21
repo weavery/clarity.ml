@@ -38,6 +38,7 @@ rule read_token = parse
   | '{' { LBRACE }
   | '}' { RBRACE }
   | ':' { COLON }
+  | ',' { COMMA }
   | '"' { read_string (Buffer.create 16) lexbuf }
   | int { INT (Integer.of_string (Lexing.lexeme lexbuf)) }
   | uint { UINT (Integer.of_string (drop_prefix 1 (Lexing.lexeme lexbuf))) }

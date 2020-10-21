@@ -19,9 +19,13 @@ and equal_expression a b = match (a, b) with
 and equal_literal a b = match (a, b) with
   | IntLiteral a, IntLiteral b -> Integer.equal a b
   | UintLiteral a, UintLiteral b -> Integer.equal a b
-  | TupleLiteral (ak, av), TupleLiteral (bk, bv) -> ak = bk && equal_literal av bv
+  | TupleLiteral a, TupleLiteral b -> equal_literal_bindings a b
   | a, b -> a = b
 
 and equal_bindings a b =
   let equal_binding (ak, av) (bk, bv) = ak = bk && equal_expression av bv in
+  List.length a = List.length b && List.for_all2 equal_binding a b
+
+and equal_literal_bindings a b =
+  let equal_binding (ak, av) (bk, bv) = ak = bk && equal_literal av bv in
   List.length a = List.length b && List.for_all2 equal_binding a b

@@ -31,8 +31,9 @@ let literal () =
   check_literal "0xABCD" (BuffLiteral "\xab\xcd");
   check_literal {|"Hello"|} (StringLiteral "Hello");
   check_literal {|"\t\r\n"|} (StringLiteral "\t\r\n");
-  check_literal "{ id: 1337 }" (TupleLiteral ("id", int_literal 1337));
-  check_literal "{ name: \"blockstack\" }" (TupleLiteral ("name", StringLiteral "blockstack"))
+  check_literal "{ id: 1337 }" (TupleLiteral [("id", int_literal 1337)]);
+  check_literal "{ name: \"blockstack\" }" (TupleLiteral [("name", StringLiteral "blockstack")]);
+  check_literal "{v1: 100, v2: 7}" (TupleLiteral [("v1", int_literal 100); ("v2", int_literal 7)])
 
 let parses () =
   let open Sexp in
