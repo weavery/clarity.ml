@@ -9,3 +9,5 @@ val print_parameter : Format.formatter -> parameter -> unit
 val print_expression : Format.formatter -> expression -> unit
 
 val print_literal : Format.formatter -> literal -> unit
+
+val type_to_string : type' -> string
