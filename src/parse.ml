@@ -25,6 +25,11 @@ and parse_definition sexp =
       List [List [Sym key_name; key_type]];
       List [List [Sym val_name; val_type]]] ->
     Map (name, (key_name, parse_type key_type), (val_name, parse_type val_type))
+  | List [Sym "define-map"; Sym name;  (* TODO: make this fully generic *)
+      List [List [Sym key_name; key_type]];
+      List [List [Sym val1_name; val1_type];
+            List [Sym _val2_name; _val2_type]]] ->
+    Map (name, (key_name, parse_type key_type), (val1_name, parse_type val1_type))
   | List [Sym "define-private"; head; body] ->
     let (name, params) = parse_function_head head in
     let body = parse_function_body body in
