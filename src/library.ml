@@ -3,67 +3,70 @@
 (* See: https://github.com/weavery/clarity.js#supported-clarity-features *)
 
 let is_primitive = function
-  | "*" | "mul" -> true
-  | "+" | "add" -> true
-  | "-" | "sub" -> true
-  | "/" | "div" -> true
-  | "<" | "lt" -> true
-  | "<=" | "le" -> true
-  | ">" | "gt" -> true
-  | ">=" | "ge" -> true
-  | "append" -> true
-  | "as-contract" -> true
-  | "as-max-len?" -> true
-  | "at-block" -> true
-  | "block-height" -> true
-  | "concat" -> true
-  | "contract-call?" -> true
-  | "contract-caller" -> true
-  | "contract-of" -> true
-  | "default-to" -> true
-  | "err" -> true
-  | "filter" -> true
-  | "fold" -> true
-  | "ft-get-balance" -> true
-  | "ft-mint?" -> true
-  | "ft-transfer?" -> true
-  | "get" -> true
-  | "get-block-info?" -> true
-  | "hash160" -> true
-  | "is-eq" -> true
-  | "is-err" -> true
-  | "is-none" -> true
-  | "is-ok" -> true
-  | "is-some" -> true
-  | "keccak256" -> true
-  | "len" -> true
-  | "list" -> true
-  | "map" -> true
-  | "map-delete" -> true
-  | "map-get?" -> true
-  | "map-insert" -> true
-  | "map-set" -> true
-  | "mod" -> true
-  | "nft-get-owner?" -> true
-  | "nft-mint?" -> true
-  | "nft-transfer?" -> true
-  | "none" -> true
-  | "not" -> true
-  | "ok" -> true
-  | "pow" -> true
-  | "print" -> true
-  | "sha256" -> true
-  | "sha512" -> true
-  | "sha512/256" -> true
-  | "some" -> true
-  | "to-int" -> true
-  | "to-uint" -> true
-  | "try!" -> true
-  | "tuple" -> true
-  | "tx-sender" -> true
-  | "unwrap!" -> true
-  | "unwrap-err!" -> true
-  | "unwrap-err-panic" -> true
-  | "unwrap-panic" -> true
+  | "*" | "mul"
+  | "+" | "add"
+  | "-" | "sub"
+  | "/" | "div"
+  | "<" | "lt"
+  | "<=" | "le"
+  | ">" | "gt"
+  | ">=" | "ge"
+  | "append"
+  | "as-contract"
+  | "as-max-len?"
+  | "at-block"
+  | "block-height"
+  | "burn-block-height"
+  | "concat"
+  | "contract-call?"
+  | "contract-caller"
+  | "contract-of"
+  | "default-to"
+  | "err"
+  | "filter"
+  | "fold"
+  | "ft-get-balance"
+  | "ft-mint?"
+  | "ft-transfer?"
+  | "get"
+  | "get-block-info?"
+  | "hash160"
+  | "is-eq"
+  | "is-err"
+  | "is-in-regtest"
+  | "is-none"
+  | "is-ok"
+  | "is-some"
+  | "keccak256"
+  | "len"
+  | "list"
+  | "map"
+  | "map-delete"
+  | "map-get?"
+  | "map-insert"
+  | "map-set"
+  | "mod"
+  | "nft-get-owner?"
+  | "nft-mint?"
+  | "nft-transfer?"
+  | "none"
+  | "not"
+  | "ok"
+  | "pow"
+  | "print"
+  | "sha256"
+  | "sha512"
+  | "sha512/256"
+  | "some"
+  | "stx-liquid-supply"
+  | "to-int"
+  | "to-uint"
+  | "try!"
+  | "tuple"
+  | "tx-sender"
+  | "unwrap!"
+  | "unwrap-err!"
+  | "unwrap-err-panic"
+  | "unwrap-panic"
   | "xor" -> true
   | _ -> false
