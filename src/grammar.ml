@@ -72,6 +72,7 @@ and literal =
 and identifier = string
 
 and type' =
+  | Unit
   | Principal
   | Bool
   | Int

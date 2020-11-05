@@ -113,6 +113,7 @@ and print_tuple_literal ppf =
     (Format.pp_print_list ~pp_sep:Format.pp_print_space print_tuple_binding)
 
 and type_to_string = function
+  | Unit -> "unit"
   | Principal -> "principal"
   | Bool -> "bool"
   | Int -> "int"
