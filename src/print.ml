@@ -44,6 +44,7 @@ and print_expression ppf = function
   | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr
   | ListExpression exprs -> print_operation ppf "list" exprs
   | TupleExpression bindings -> print_tuple_expression ppf bindings
+  | IsEq exprs -> print_operation ppf "is-eq" exprs
   | IsNone expr -> fprintf ppf "(is-none %a)" print_expression expr
   | IsSome expr -> fprintf ppf "(is-some %a)" print_expression expr
   | IsErr expr -> fprintf ppf "(is-err %a)" print_expression expr
@@ -56,7 +57,6 @@ and print_expression ppf = function
   | Not expr -> fprintf ppf "(not %a)" print_expression expr
   | And exprs -> print_operation ppf "and" exprs
   | Or exprs -> print_operation ppf "or" exprs
-  | Eq exprs -> print_operation ppf "is-eq" exprs
   | Lt (a, b) -> print_operation ppf "<" [a; b]
   | Le (a, b) -> print_operation ppf "<=" [a; b]
   | Gt (a, b) -> print_operation ppf ">" [a; b]

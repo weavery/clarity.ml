@@ -21,6 +21,7 @@ and expression =
   | SomeExpression of expression
   | ListExpression of expression list
   | TupleExpression of binding list
+  | IsEq of expression list
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -33,7 +34,6 @@ and expression =
   | Not of expression
   | And of expression list
   | Or of expression list
-  | Eq of expression list
   | Lt of expression * expression
   | Le of expression * expression
   | Gt of expression * expression
